@@ -1,13 +1,30 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    IO.println(String.format("Hello and welcome!"));
+import java.util.ArrayList;
+import java.util.List;
 
-    for (int i = 1; i <= 5; i++) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        IO.println("i = " + i);
+public class Main {
+    public static void main(String[] args) {
+        Author author1 = new Author("Ліна Костенко", 1930);
+        Author author2 = new Author("Іван Франко", 1856);
+
+        Book book1 = new Book("Маруся Чурай", author1, 1979, "Історичний роман у віршах.");
+        Book book2 = new Book("Захар Беркут", author2, 1883, "Повість про захист Карпат.");
+        Book book3 = new Book("Каменярі", author2, 1878, "");
+
+
+        Library library = new Library("Міська бібліотека", new ArrayList<>());
+
+        library.addBook(book1);
+        library.addBook(book2);
+        library.addBook(book3);
+
+        System.out.println("=== Всі книги ===");
+        library.listBooks();
+
+
+        System.out.println("=== Книги Івана Франка ===");
+        List<Book> found = library.findBooksByAuthor("Іван Франко");
+        for (Book b : found) {
+            System.out.println(b.getInfo());
+        }
     }
 }

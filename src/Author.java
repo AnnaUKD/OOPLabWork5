@@ -7,8 +7,12 @@ public class Author {
         this.birthYear = birthYear;
     }
 
+    public String getName() {
+        return name;
+    }
 
-    public void getInfo() {
-        System.out.println("Ім'я: " + name + "Рік народження" + birthYear);
+
+    public String getInfo() {
+        return "Ім'я: " + name + "Рік народження" + birthYear;
     }
 }

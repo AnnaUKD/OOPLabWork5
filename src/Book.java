@@ -12,9 +12,12 @@ public class Book {
     }
 
 
-    public void getInfo() {
-        System.out.println(
-                "Назва: " +  name + ", Рік видання" + year + ", Автор: " + author + ", Анотація: " + annotation
-        );
+    public String getInfo() {
+            return "Назва: " +  name + ", Рік видання" + year + ", Автор: " + author + ", Анотація: " + annotation;
+    }
+
+
+    public Author getAuthor() {
+        return author;
     }
 }
