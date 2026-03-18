@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,5 +27,16 @@ public class Main {
         for (Book b : found) {
             System.out.println(b.getInfo());
         }
+
+
+        library.findBookByYear();
+
+
+        String desiredBookToFind = JOptionPane.showInputDialog(
+                null, "Введіть частинку назви книжки або назву книжки, яку ви хочете знайти", JOptionPane.QUESTION_MESSAGE
+        );
+        Book book = library.findBookByTitle(desiredBookToFind);
+        JOptionPane.showMessageDialog(null, book.getInfo(), "Книгу знайдено", JOptionPane.INFORMATION_MESSAGE);
+
     }
 }

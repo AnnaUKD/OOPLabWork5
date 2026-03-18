@@ -12,7 +12,7 @@ public class Author {
     }
 
 
-    public String getInfo() {
-        return "Ім'я: " + name + "Рік народження" + birthYear;
+    public String toString() {
+        return "Ім'я: " + name + "Рік народження: " + birthYear;
     }
 }

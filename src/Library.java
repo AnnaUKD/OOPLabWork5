@@ -1,12 +1,13 @@
+import javax.swing.*;
 import java.util.List;
 import java.util.ArrayList;
 
 public class Library {
-    private String name;
+    private String title;
     private List<Book> books;
 
     public Library(String name, List<Book> books) {
-        this.name = name;
+        this.title = title;
         this.books = books;
     }
 
@@ -28,5 +29,28 @@ public class Library {
             }
         }
         return result;
+    }
+
+
+    public Book findBookByTitle(String title) {
+        for (Book book : books) {
+            if (book.title.contains(title)){
+               return book;
+            }
+        }
+        return null;
+    }
+
+    public void findBookByYear() {
+        String desiredBookToFind = JOptionPane.showInputDialog(
+                null, "Введіть рік видання книжки, яку ви хочете знайти", JOptionPane.QUESTION_MESSAGE
+        );
+
+
+        for (Book book : books) {
+            if (book.year == Integer.parseInt(desiredBookToFind)){
+                JOptionPane.showMessageDialog(null, book.getInfo(), "Книгу знайдено", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
     }
 }
