@@ -11,13 +11,15 @@ public class Book {
         this.annotation = annotation;
     }
 
-
-    public String getInfo() {
-            return "Назва: " +  title + ", Рік видання: " + year + ", Автор: " + author.getName() + ", Анотація: " + annotation;
-    }
-
-
     public Author getAuthor() {
         return author;
+    }
+
+    public String getInfo() {
+        String info = "Назва: " + title + ", Рік видання: " + year + ", Автор: " + author.getName();
+        if (annotation != null && !annotation.isEmpty()) {
+            info += "\nАнотація: " + annotation;
+        }
+        return info;
     }
 }

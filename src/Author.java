@@ -11,8 +11,7 @@ public class Author {
         return name;
     }
 
-
-    public String toString() {
-        return "Ім'я: " + name + "Рік народження: " + birthYear;
+    public String getInfo() {
+        return "Ім'я: " + name + ", Рік народження: " + birthYear;
     }
 }

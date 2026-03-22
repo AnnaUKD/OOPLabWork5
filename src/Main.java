@@ -11,16 +11,17 @@ public class Main {
         Book book2 = new Book("Захар Беркут", author2, 1883, "Повість про захист Карпат.");
         Book book3 = new Book("Каменярі", author2, 1878, "");
 
-
         Library library = new Library("Міська бібліотека", new ArrayList<>());
 
         library.addBook(book1);
         library.addBook(book2);
         library.addBook(book3);
 
+
+        library.addBook(book1);
+
         System.out.println("=== Всі книги ===");
         library.listBooks();
-
 
         System.out.println("=== Книги Івана Франка ===");
         List<Book> found = library.findBooksByAuthor("Іван Франко");
@@ -32,11 +33,26 @@ public class Main {
         library.findBookByYear();
 
 
-        String desiredBookToFind = JOptionPane.showInputDialog(
-                null, "Введіть частинку назви книжки або назву книжки, яку ви хочете знайти", JOptionPane.QUESTION_MESSAGE
-        );
-        Book book = library.findBookByTitle(desiredBookToFind);
-        JOptionPane.showMessageDialog(null, book.getInfo(), "Книгу знайдено", JOptionPane.INFORMATION_MESSAGE);
+        try {
+            String desiredBookToFind = JOptionPane.showInputDialog(
+                    null, "Введіть назву книжки", JOptionPane.QUESTION_MESSAGE
+            );
+            Book book = library.findBookByTitle(desiredBookToFind);
+            JOptionPane.showMessageDialog(null, book.getInfo(), "Книгу знайдено", JOptionPane.INFORMATION_MESSAGE);
+        } catch (RuntimeException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Помилка", JOptionPane.ERROR_MESSAGE);
+        }
 
+
+        library.removeBook("Каменярі");
+        System.out.println("=== Після видалення ===");
+        library.listBooks();
+
+
+        Reader reader = new Reader("Анна", 20);
+        reader.registration();
+        reader.rentBook(book1);
+        System.out.println("=== Орендовані книги ===");
+        reader.listRentedBooks();
     }
 }
