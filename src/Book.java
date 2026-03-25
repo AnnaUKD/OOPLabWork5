@@ -1,8 +1,8 @@
 public class Book {
-    public String title;
-    public Author author;
-    public int year;
-    public String annotation;
+    private String title;
+    private Author author;
+    private int year;
+    private String annotation;
 
     public Book(String title, Author author, int year, String annotation) {
         this.title = title;
@@ -21,5 +21,17 @@ public class Book {
             info += "\nАнотація: " + annotation;
         }
         return info;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public String getAnnotation() {
+        return annotation;
     }
 }

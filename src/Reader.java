@@ -17,7 +17,7 @@ public class Reader {
 
     public void rentBook(Book book) {
         rentedBooks.add(book);
-        System.out.println(name + " орендував(ла) книгу: " + book.title);
+        System.out.println(name + " орендував(ла) книгу: " + book.getTitle());
     }
 
     public void listRentedBooks() {

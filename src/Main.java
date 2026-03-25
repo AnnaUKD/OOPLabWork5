@@ -11,7 +11,7 @@ public class Main {
         Book book2 = new Book("Захар Беркут", author2, 1883, "Повість про захист Карпат.");
         Book book3 = new Book("Каменярі", author2, 1878, "");
 
-        Library library = new Library("Міська бібліотека", new ArrayList<>());
+        Library library = new Library("Міська бібліотека");
 
         library.addBook(book1);
         library.addBook(book2);
@@ -51,8 +51,17 @@ public class Main {
 
         Reader reader = new Reader("Анна", 20);
         reader.registration();
-        reader.rentBook(book1);
+        library.registerReader(reader);
+        library.getAllReader();
+
+
+        library.serveBook(reader, "Захар Беркут");
         System.out.println("=== Орендовані книги ===");
         reader.listRentedBooks();
+
+        System.out.println("=== Після видалення ===");
+        library.listBooks();
+
+
     }
 }
